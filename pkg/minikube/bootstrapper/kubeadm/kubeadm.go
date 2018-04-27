@@ -294,9 +294,9 @@ func (k *KubeadmBootstrapper) UpdateCluster(cfg bootstrapper.KubernetesConfig) e
 	}
 
 	err = k.c.Run(`
-sudo systemctl daemon-reload &&
-sudo systemctl enable kubelet &&
-sudo systemctl start kubelet
+systemctl daemon-reload &&
+systemctl enable kubelet &&
+systemctl start kubelet
 `)
 	if err != nil {
 		return errors.Wrap(err, "starting kubelet")
